@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/subregionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="42dp"
+        android:text="@string/subregion"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regionTextView" />
+
+    <AutoCompleteTextView
+        android:id="@+id/subregionAutoCompleteTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="12dp"
+        android:completionThreshold="0"
+        android:hint="@string/subregion"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/subregionTextView"
+        app:layout_constraintEnd_toStartOf="@+id/subregionGoButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/subregionGoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:enabled="false"
+        android:onClick="onGoButton"
+        android:text="@string/go"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/subregionAutoCompleteTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/regionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="42dp"
+        android:text="@string/region"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/countyTextView" />
+
+    <AutoCompleteTextView
+        android:id="@+id/regionAutoCompleteTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="12dp"
+        android:completionThreshold="0"
+        android:hint="@string/region"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/regionTextView"
+        app:layout_constraintEnd_toStartOf="@+id/regionGoButton"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/regionGoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:enabled="false"
+        android:onClick="onGoButton"
+        android:text="@string/go"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/regionAutoCompleteTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/countyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/country"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <AutoCompleteTextView
+        android:id="@+id/countryAutoCompleteTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="12dp"
+        android:completionThreshold="0"
+        android:hint="@string/country"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/countyTextView"
+        app:layout_constraintEnd_toStartOf="@+id/countryGoButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/countryGoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:enabled="false"
+        android:onClick="onGoButton"
+        android:text="@string/go"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/countryAutoCompleteTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/fromTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="42dp"
+        android:text="@string/from"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subregionTextView" />
+
+    <EditText
+        android:id="@+id/fromEditTextDate"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/from"
+        android:inputType="date"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/fromTextView"
+        app:layout_constraintEnd_toEndOf="@+id/countryAutoCompleteTextView"
+        app:layout_constraintStart_toStartOf="@+id/countryAutoCompleteTextView" />
+
+    <TextView
+        android:id="@+id/toTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="42dp"
+        android:text="@string/to"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fromTextView" />
+
+    <EditText
+        android:id="@+id/toEditTextDate"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="@string/to"
+        android:inputType="date"
+        android:visibility="invisible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/toTextView"
+        app:layout_constraintEnd_toEndOf="@+id/countryAutoCompleteTextView"
+        app:layout_constraintStart_toStartOf="@+id/countryAutoCompleteTextView" />
+
+    <ProgressBar
+        android:id="@+id/loadingProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:scaleX="2"
+        android:scaleY="2"
+        app:layout_constraintBottom_toTopOf="@+id/loadingTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loadingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="220dp"
+        android:text="@string/loading"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/loadingProgressBar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/loadingProgressBar"
+        app:layout_constraintTop_toBottomOf="@+id/loadingProgressBar" />
+
+    <Button
+        android:id="@+id/retryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/retry"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
