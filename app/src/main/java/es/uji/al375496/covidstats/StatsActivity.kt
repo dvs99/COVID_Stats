@@ -78,22 +78,22 @@ class  StatsActivity : AppCompatActivity(), StatsView
 
     override fun displayDialog(data: DayData)
     {
-        val builder = AlertDialog.Builder(this)
-
-        val dialog = builder.apply {
-            setMessage("\nTotal cases:\t\t\t\t\t\t\t\t\t${if (data.totalCases != IMPOSSIBLE_VALUE) data.totalCases.toString() else "unknown"}\n" +
-                    "New cases:\t\t\t\t\t\t\t\t\t${if (data.newCases != IMPOSSIBLE_VALUE) data.newCases.toString() else "unknown"}\n\n" +
-                    "Total recoveries:\t\t\t\t\t${if (data.totalRecoveries != IMPOSSIBLE_VALUE) data.totalRecoveries.toString() else "unknown"}\n" +
-                    "New recoveries:\t\t\t\t\t${if (data.newRecoveries != IMPOSSIBLE_VALUE) data.newRecoveries.toString() else "unknown"}\n\n" +
-                    "Total deaths:\t\t\t\t\t\t\t\t${if (data.totalDeaths != IMPOSSIBLE_VALUE) data.totalDeaths.toString() else "unknown"}\n" +
-                    "New deaths:\t\t\t\t\t\t\t\t\t${if (data.newDeaths != IMPOSSIBLE_VALUE) data.newDeaths.toString() else "unknown"}\n")
-
+        val builder = AlertDialog.Builder(this).apply {
             setTitle(data.date)
+            setView(R.layout.dialog_day_stats)
             setPositiveButton("OK") { dialog, _ -> dialog.dismiss()}
-            create()
         }
 
+        val dialog = builder.create()
         dialog.show()
+
+        dialog.findViewById<TextView>(R.id.dialogNewCasesTextView)?.text = if (data.newCases != IMPOSSIBLE_VALUE) data.newCases.toString() else "unknown"
+        dialog.findViewById<TextView>(R.id.dialogNewDeathsTextView)?.text = if (data.newDeaths != IMPOSSIBLE_VALUE) data.newDeaths.toString() else "unknown"
+        dialog.findViewById<TextView>(R.id.dialogNewRecoveriesTextView)?.text = if (data.newRecoveries != IMPOSSIBLE_VALUE) data.newRecoveries.toString() else "unknown"
+        dialog.findViewById<TextView>(R.id.dialogTotalCasesTextView)?.text = if (data.totalCases != IMPOSSIBLE_VALUE) data.totalCases.toString() else "unknown"
+        dialog.findViewById<TextView>(R.id.dialogTotalDeathsTextView)?.text = if (data.totalDeaths != IMPOSSIBLE_VALUE) data.totalDeaths.toString() else "unknown"
+        dialog.findViewById<TextView>(R.id.dialogTotalRecoveriesTextView)?.text = if (data.totalRecoveries != IMPOSSIBLE_VALUE) data.totalRecoveries.toString() else "unknown"
+
     }
 
     override fun displayStats(stats: List<DayData>)

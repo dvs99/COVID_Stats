@@ -10,4 +10,8 @@
     <string name="total_confirmed_cases">Total cases</string>
     <string name="new_confirmed_cases">New cases</string>
     <string name="retry">Retry</string>
+    <string name="total_recoveries">Total recoveries</string>
+    <string name="new_recoveries">New recoveries</string>
+    <string name="total_deaths">Total deaths</string>
+    <string name="new_deaths">New deaths</string>
 </resources>
